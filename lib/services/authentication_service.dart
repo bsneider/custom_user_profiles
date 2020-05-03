@@ -11,6 +11,15 @@ class AuthenticationService {
   User _currentUser;
   User get currentUser => _currentUser;
 
+  Future signOut() async {
+    try {
+      return await _firebaseAuth.signOut();
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+  }
+
   Future loginWithEmail({
     @required String email,
     @required String password,
