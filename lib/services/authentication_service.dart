@@ -64,6 +64,7 @@ class AuthenticationService {
   Future _populateCurrentUser(FirebaseUser user) async {
     if (user != null) {
       print(user.toString());
+      //TODO sign out if user is not in db
       _currentUser = await _firestoreService.getUser(user.uid);
     }
   }

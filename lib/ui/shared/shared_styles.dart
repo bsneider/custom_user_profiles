@@ -21,3 +21,14 @@ const EdgeInsets largeFieldPadding =
 // Text Variables
 const TextStyle buttonTitleTextStyle =
     const TextStyle(fontWeight: FontWeight.w700, color: Colors.white);
+
+// Input Decorations
+const textInputDecoration = InputDecoration(
+    hintText: 'Email',
+    fillColor: Colors.white,
+    filled: true,
+    enabledBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.white, width: 2.0)),
+    focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Colors.pink, width: 2.0)));
+

@@ -5,6 +5,9 @@ import 'package:compound/ui/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider_architecture/provider_architecture.dart';
 import 'package:compound/viewmodels/signup_view_model.dart';
+import 'package:email_validator/email_validator.dart';
+import 'package:compound/ui/shared/shared_styles.dart';
+
 
 class SignUpView extends StatelessWidget {
   final emailController = TextEditingController();
@@ -35,9 +38,12 @@ class SignUpView extends StatelessWidget {
                 controller: fullNameController,
               ),
               verticalSpaceSmall,
-              InputField(
-                placeholder: 'Email',
+              TextFormField(
                 controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: textInputDecoration,
+                validator: (val) =>
+                    EmailValidator.validate(val) ? null : 'Enter a valid email',
               ),
               verticalSpaceSmall,
               InputField(
