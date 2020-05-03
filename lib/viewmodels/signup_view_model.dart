@@ -13,16 +13,26 @@ class SignUpViewModel extends BaseModel {
   final DialogService _dialogService = locator<DialogService>();
   final NavigationService _navigationService = locator<NavigationService>();
 
+  String _selectedRole = 'Select a User Role';
+  String get selectedRole => _selectedRole;
+
+  void setSelectedRole(dynamic role) {
+    _selectedRole = role;
+    notifyListeners();
+  }
+
   Future signUp({
     @required String email,
     @required String password,
+    @required String fullName,
   }) async {
     setBusy(true);
 
     var result = await _authenticationService.signUpWithEmail(
-      email: email,
-      password: password,
-    );
+        email: email,
+        password: password,
+        fullName: fullName,
+        role: _selectedRole);
 
     setBusy(false);
 
