@@ -1,13 +1,12 @@
-import 'package:compound/constants/route_names.dart';
-import 'package:compound/locator.dart';
+import 'package:compound/app/locator.dart';
 import 'package:compound/services/authentication_service.dart';
-import 'package:compound/services/dialog_service.dart';
-import 'package:compound/services/navigation_service.dart';
+import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:compound/app/router.gr.dart';
 import 'package:flutter/foundation.dart';
 
-import 'base_model.dart';
 
-class SignUpViewModel extends BaseModel {
+class SignUpViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
   final DialogService _dialogService = locator<DialogService>();
@@ -38,7 +37,7 @@ class SignUpViewModel extends BaseModel {
 
     if (result is bool) {
       if (result) {
-        _navigationService.navigateTo(HomeViewRoute);
+    await _navigationService.navigateTo(Routes.homeViewRoute);
       } else {
         await _dialogService.showDialog(
           title: 'Sign Up Failure',

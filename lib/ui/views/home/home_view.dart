@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:compound/viewmodels/home_view_model.dart';
-import 'package:provider_architecture/provider_architecture.dart';
+import 'package:compound/ui/views/home/home_view_model.dart';
+import 'package:stacked/stacked.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ViewModelProvider<HomeViewModel>.withConsumer(
-        viewModel: HomeViewModel(),
+    return ViewModelBuilder<HomeViewModel>.reactive(
+        viewModelBuilder: () => HomeViewModel(),
+        onModelReady: (model) => model.initialize(),
         builder: (context, model, child) => Scaffold(
               body: Center(
-                child: Text('Home'),
+                child: Text(model.title),
               ),
               appBar: AppBar(
                 backgroundColor: Colors.brown[400],

@@ -1,13 +1,11 @@
-import 'package:compound/constants/route_names.dart';
-import 'package:compound/locator.dart';
+import 'package:compound/app/locator.dart';
 import 'package:compound/services/authentication_service.dart';
-import 'package:compound/services/dialog_service.dart';
-import 'package:compound/services/navigation_service.dart';
+import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
+import 'package:compound/app/router.gr.dart';
 import 'package:flutter/foundation.dart';
 
-import 'base_model.dart';
-
-class LoginViewModel extends BaseModel {
+class LoginViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
   final DialogService _dialogService = locator<DialogService>();
@@ -28,7 +26,7 @@ class LoginViewModel extends BaseModel {
 
     if (result is bool) {
       if (result) {
-        _navigationService.navigateTo(HomeViewRoute);
+        await _navigationService.navigateTo(Routes.homeViewRoute);
       } else {
         await _dialogService.showDialog(
           title: 'Login Failure',
@@ -43,7 +41,7 @@ class LoginViewModel extends BaseModel {
     }
   }
 
-  void navigateToSignUp() {
-    _navigationService.navigateTo(SignUpViewRoute);
+  void navigateToSignUp() async {
+    await _navigationService.navigateTo(Routes.signUpViewRoute);
   }
 }

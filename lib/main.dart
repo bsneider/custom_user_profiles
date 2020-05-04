@@ -1,10 +1,8 @@
-import 'package:compound/ui/views/startup_view.dart';
 import 'package:flutter/material.dart';
-import 'package:compound/services/navigation_service.dart';
-import 'package:compound/services/dialog_service.dart';
+import 'package:stacked_services/stacked_services.dart';
 import 'managers/dialog_manager.dart';
-import 'ui/router.dart';
-import 'locator.dart';
+import 'app/router.gr.dart';
+import 'app/locator.dart';
 
 void main() {
   // Register all the models and services before the app starts
@@ -17,13 +15,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Compound',
-      builder: (context, child) => Navigator(
-        key: locator<DialogService>().dialogNavigationKey,
-        onGenerateRoute: (settings) => MaterialPageRoute(
-            builder: (context) => DialogManager(child: child)),
-      ),
-      navigatorKey: locator<NavigationService>().navigationKey,
+      title: 'Demo It Up Fire',
+      // builder: (context, child) => Navigator(
+      //   key: locator<DialogService>().dialogNavigationKey,
+      //   onGenerateRoute: (settings) => MaterialPageRoute(
+      //       builder: (context) => DialogManager(child: child)),
+      // ),
       theme: ThemeData(
         primaryColor: Color.fromARGB(255, 9, 202, 172),
         backgroundColor: Color.fromARGB(255, 26, 27, 30),
@@ -31,8 +28,9 @@ class MyApp extends StatelessWidget {
               fontFamily: 'Open Sans',
             ),
       ),
-      home: StartUpView(),
-      onGenerateRoute: generateRoute,
+      initialRoute: Routes.startupViewRoute,
+      onGenerateRoute: Router().onGenerateRoute,
+      navigatorKey: locator<NavigationService>().navigatorKey,
     );
   }
 }

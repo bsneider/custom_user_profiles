@@ -1,4 +1,4 @@
-import 'package:compound/locator.dart';
+import 'package:compound/app/locator.dart';
 import 'package:compound/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
