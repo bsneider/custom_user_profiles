@@ -7,7 +7,7 @@ import 'package:stacked/stacked.dart';
 import 'package:compound/ui/views/signup/signup_view_model.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:compound/ui/shared/shared_styles.dart';
-import 'package:compound/models/payment.dart';
+import 'package:compound/forms/payment_form.dart';
 
 enum Ranks {
   E2,
@@ -46,8 +46,8 @@ class SignUpView extends StatelessWidget {
       builder: (context, model, child) => Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50.0),
-          child: //PaymentForm(),
-          buildColumn(model),
+          child: PaymentForm(),
+          // buildColumn(model),
         ),
       ),
     );
