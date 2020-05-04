@@ -8,7 +8,8 @@ class StartUpView extends ViewModelBuilderWidget<StartUpViewModel> {
   bool get reactive => true;
   @override
   bool get disposeViewModel => true;
-
+  @override
+  void onViewModelReady(StartUpViewModel s) => s.handleStartUpLogic();
   @override
   Widget builder(BuildContext context, StartUpViewModel model, Widget child) {
     return Scaffold(
