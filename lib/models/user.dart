@@ -3,21 +3,18 @@ class User {
   final String fullName;
   final String email;
   final String userRole;
+  String rank;
 
-  User({this.id, this.fullName, this.email, this.userRole});
+  User({this.id, this.fullName, this.email, this.userRole, this.rank});
 
   User.fromData(Map<String, dynamic> data)
       : id = data['id'],
-        fullName = data['fullName'],
-        email = data['email'],
-        userRole = data['userRole'];
+        fullName = data['fn'],
+        email = data['e'],
+        userRole = data['ur'],
+        rank = data['r'];
 
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'fullName': fullName,
-      'email': email,
-      'userRole': userRole,
-    };
+    return {'id': id, 'fn': fullName, 'e': email, 'ur': userRole, 'r': rank};
   }
 }

@@ -8,31 +8,7 @@ import 'package:compound/ui/views/signup/signup_view_model.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:compound/ui/shared/shared_styles.dart';
 import 'package:compound/forms/payment_form.dart';
-
-enum Ranks {
-  E2,
-  E3,
-  E4,
-  E5,
-  E6,
-  E7,
-  E8,
-  E9,
-  W1,
-  W2,
-  W3,
-  W4,
-  W5,
-  O1,
-  O2,
-  O3,
-  O4,
-  O5,
-  O6,
-  O7,
-  O8,
-  O9,
-}
+import 'package:compound/forms/user_form.dart';
 
 class SignUpView extends StatelessWidget {
   final emailController = TextEditingController();
@@ -46,7 +22,7 @@ class SignUpView extends StatelessWidget {
       builder: (context, model, child) => Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50.0),
-          child: PaymentForm(),
+          child: UserForm(),
           // buildColumn(model),
         ),
       ),
@@ -87,7 +63,7 @@ class SignUpView extends StatelessWidget {
         ),
         verticalSpaceSmall,
         ExpansionList<String>(
-            items: Ranks.values.map((e) => e.toString()).toList(),
+            // items: Ranks.values.map((e) => e.toString()).toList(),
             title: model.selectedRole,
             onItemSelected: model.setSelectedRole),
         verticalSpaceMedium,
