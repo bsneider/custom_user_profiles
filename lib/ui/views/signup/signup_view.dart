@@ -9,6 +9,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:compound/ui/shared/shared_styles.dart';
 import 'package:compound/forms/payment_form.dart';
 import 'package:compound/forms/user_form.dart';
+import 'package:compound/ui/shared/app_colors.dart';
 
 class SignUpView extends StatelessWidget {
   final emailController = TextEditingController();
@@ -23,11 +24,9 @@ class SignUpView extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50.0),
           child: UserForm(),
-
-          // buildColumn(model),
         ),
         appBar: AppBar(
-          backgroundColor: Colors.brown[400],
+          backgroundColor: primaryColor,
           elevation: 0.0,
           actions: <Widget>[
             FlatButton.icon(
@@ -39,64 +38,6 @@ class SignUpView extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Column buildColumn(SignUpViewModel model) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          'Sign Up',
-          style: TextStyle(
-            fontSize: 38,
-          ),
-        ),
-        verticalSpaceLarge,
-        InputField(
-          placeholder: 'Full Name',
-          controller: fullNameController,
-        ),
-        verticalSpaceSmall,
-        TextFormField(
-          controller: emailController,
-          keyboardType: TextInputType.emailAddress,
-          decoration: textInputDecoration,
-          validator: (val) =>
-              EmailValidator.validate(val) ? null : 'Enter a valid email',
-        ),
-        verticalSpaceSmall,
-        InputField(
-          placeholder: 'Password',
-          password: true,
-          controller: passwordController,
-          additionalNote: 'Password has to be a minimum of 6 characters.',
-        ),
-        verticalSpaceSmall,
-        ExpansionList<String>(
-            // items: Ranks.values.map((e) => e.toString()).toList(),
-            title: model.selectedRole,
-            onItemSelected: model.setSelectedRole),
-        verticalSpaceMedium,
-        Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            BusyButton(
-              title: 'Sign Up',
-              // busy: model.busy,
-              onPressed: () {
-                model.signUp(
-                    email: emailController.text,
-                    password: passwordController.text,
-                    fullName: fullNameController.text);
-              },
-            )
-          ],
-        )
-      ],
     );
   }
 }
