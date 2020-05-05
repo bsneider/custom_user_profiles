@@ -1,4 +1,4 @@
-import 'package:compound/ui/views/startup/startup_view_model.dart';
+import 'package:compound/ui/views/startup/startup_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 

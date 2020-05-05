@@ -4,7 +4,7 @@ import 'package:compound/ui/widgets/expansion_list.dart';
 import 'package:compound/ui/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:compound/ui/views/signup/signup_view_model.dart';
+import 'package:compound/ui/views/signup/signup_viewmodel.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:compound/ui/shared/shared_styles.dart';
 import 'package:compound/forms/payment_form.dart';
@@ -15,7 +15,6 @@ class SignUpView extends StatelessWidget {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final fullNameController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return ViewModelBuilder<SignUpViewModel>.reactive(

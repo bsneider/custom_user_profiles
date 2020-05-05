@@ -4,7 +4,7 @@ import 'package:compound/ui/widgets/input_field.dart';
 import 'package:compound/ui/widgets/text_link.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:compound/ui/views/login/login_view_model.dart';
+import 'package:compound/ui/views/login/login_viewmodel.dart';
 
 class LoginView extends StatelessWidget {
   final emailController = TextEditingController();
