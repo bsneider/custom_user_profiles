@@ -5,7 +5,6 @@ import 'package:stacked_services/stacked_services.dart';
 import 'package:compound/app/router.gr.dart';
 import 'package:flutter/foundation.dart';
 
-
 class SignUpViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
@@ -18,6 +17,10 @@ class SignUpViewModel extends BaseViewModel {
   void setSelectedRole(dynamic role) {
     _selectedRole = role;
     notifyListeners();
+  }
+
+  void navigateToLogin() async {
+    await _navigationService.navigateTo(Routes.loginViewRoute);
   }
 
   Future signUp({
@@ -37,7 +40,7 @@ class SignUpViewModel extends BaseViewModel {
 
     if (result is bool) {
       if (result) {
-    await _navigationService.navigateTo(Routes.homeViewRoute);
+        await _navigationService.navigateTo(Routes.homeViewRoute);
       } else {
         await _dialogService.showDialog(
           title: 'Sign Up Failure',

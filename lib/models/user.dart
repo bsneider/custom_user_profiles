@@ -5,6 +5,7 @@ class User {
   final String userRole;
   String rank;
   bool male;
+  String serviceBranch;
 
   User(
       {this.id,
@@ -12,7 +13,8 @@ class User {
       this.email,
       this.userRole,
       this.rank,
-      this.male});
+      this.male,
+      this.serviceBranch});
 
   User.fromData(Map<String, dynamic> data)
       : id = data['id'],
@@ -20,7 +22,8 @@ class User {
         email = data['e'],
         userRole = data['ur'],
         rank = data['r'],
-        male = data['m'];
+        male = data['m'],
+        serviceBranch = data['sb'];
 
   Map<String, dynamic> toJson() {
     return {
@@ -29,7 +32,8 @@ class User {
       'e': email,
       'ur': userRole,
       'r': rank,
-      'm': male
+      'm': male,
+      'sb': serviceBranch
     };
   }
 }

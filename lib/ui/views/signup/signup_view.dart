@@ -23,7 +23,20 @@ class SignUpView extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 50.0),
           child: UserForm(),
+
           // buildColumn(model),
+        ),
+        appBar: AppBar(
+          backgroundColor: Colors.brown[400],
+          elevation: 0.0,
+          actions: <Widget>[
+            FlatButton.icon(
+                onPressed: () async {
+                  model.navigateToLogin();
+                },
+                icon: Icon(Icons.person),
+                label: Text('Login'))
+          ],
         ),
       ),
     );

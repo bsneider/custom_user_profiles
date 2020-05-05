@@ -119,6 +119,43 @@ class _UserFormState extends State<UserForm> {
                     ),
                   ],
                 ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Expanded(
+                        child: DropdownButtonFormField<String>(
+                          onSaved: (val) => _user.serviceBranch = val,
+                          value: 'Air Force',
+                          items: [
+                            'Air Force',
+                            'Army',
+                            'Coast Guard',
+                            'Marine Corps',
+                            'National Guard',
+                            'Navy',
+                            'Space Force',
+                            'DoD',
+                            'Civilian'
+                          ].map<DropdownMenuItem<String>>(
+                            (String val) {
+                              return DropdownMenuItem(
+                                child: Text(val),
+                                value: val,
+                              );
+                            },
+                          ).toList(),
+                          onChanged: (val) {
+                            setState(() {
+                              _user.serviceBranch = val;
+                            });
+                          },
+                          decoration: InputDecoration(
+                            labelText: 'Service Branch',
+                            icon: Icon(Icons.flare),
+                          ),
+                        ),
+                      )
+                    ]),
               ],
             ),
           ),
