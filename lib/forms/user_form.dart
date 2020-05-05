@@ -5,6 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:compound/models/user.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:compound/ui/shared/shared_styles.dart';
+import 'package:compound/ui/shared/ui_helpers.dart';
 
 class UserForm extends StatefulWidget {
   UserForm({Key key}) : super(key: key);
@@ -32,6 +33,7 @@ class _UserFormState extends State<UserForm> {
 
   String _rank;
   User _user;
+
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -91,9 +93,32 @@ class _UserFormState extends State<UserForm> {
                           icon: Icon(Icons.work),
                         ),
                       ),
-                    )
+                    ),
+                    horizontalSpaceMedium,
+                    Expanded(
+                      child: DropdownButtonFormField<String>(
+                        onSaved: (val) => _user.male = val == 'Male',
+                        value: 'Male',
+                        items: ['Male', 'Female'].map<DropdownMenuItem<String>>(
+                          (String val) {
+                            return DropdownMenuItem(
+                              child: Text(val),
+                              value: val,
+                            );
+                          },
+                        ).toList(),
+                        onChanged: (val) {
+                          setState(() {
+                            _user.male = val == 'Male';
+                          });
+                        },
+                        decoration: InputDecoration(
+                          labelText: 'Gender',
+                        ),
+                      ),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),
