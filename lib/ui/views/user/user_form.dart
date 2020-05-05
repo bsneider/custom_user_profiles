@@ -33,7 +33,8 @@ class _UserFormState extends State<UserForm> {
 
   String _rank;
   User _user;
-
+  User get user => _user;
+  
   @override
   Widget build(BuildContext context) {
     return ListView(
