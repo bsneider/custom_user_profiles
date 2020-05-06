@@ -1,8 +1,7 @@
 class User {
   final String id;
   final String fullName;
-  final String email;
-  final String userRole;
+  String email;
   String rank;
   bool male;
   String serviceBranch;
@@ -11,7 +10,6 @@ class User {
       {this.id,
       this.fullName,
       this.email,
-      this.userRole,
       this.rank,
       this.male,
       this.serviceBranch});
@@ -20,7 +18,6 @@ class User {
       : id = data['id'],
         fullName = data['fn'],
         email = data['e'],
-        userRole = data['ur'],
         rank = data['r'],
         male = data['m'],
         serviceBranch = data['sb'];
@@ -30,7 +27,6 @@ class User {
       'id': id,
       'fn': fullName,
       'e': email,
-      'ur': userRole,
       'r': rank,
       'm': male,
       'sb': serviceBranch

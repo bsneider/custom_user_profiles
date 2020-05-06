@@ -196,44 +196,47 @@ class _PaymentFormState extends State<PaymentForm> {
                   },
                   title: Text('Remember Information'),
                 ),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: RaisedButton(
-                        child: loading
-                            ? SpinKitWave(
-                                color: Colors.white,
-                                size: 15.0,
-                              )
-                            : Text('Process Payment'),
-                        color: Colors.pinkAccent,
-                        textColor: Colors.white,
-                        onPressed: () {
-                          if (_formKey.currentState.validate()) {
-                            setState(() {
-                              loading = true;
-                            });
-                            _formKey.currentState.save();
-                            Timer(Duration(seconds: 4), () {
-                              Payment payment = new Payment(
-                                  address: _paymentAddress,
-                                  cardDetails: _cardDetails);
-                              setState(() {
-                                loading = false;
-                              });
-                              final snackBar =
-                                  SnackBar(content: Text('Payment Proccessed'));
-                              Scaffold.of(context).showSnackBar(snackBar);
-                              print('Saved');
-                            });
-                          }
-                        },
-                      ),
-                    ),
-                  ],
-                )
+                submit(context)
               ],
             ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row submit(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        Expanded(
+          child: RaisedButton(
+            child: loading
+                ? SpinKitWave(
+                    color: Colors.white,
+                    size: 15.0,
+                  )
+                : Text('Process Payment'),
+            color: Colors.pinkAccent,
+            textColor: Colors.white,
+            onPressed: () {
+              if (_formKey.currentState.validate()) {
+                setState(() {
+                  loading = true;
+                });
+                _formKey.currentState.save();
+                Timer(Duration(seconds: 4), () {
+                  Payment payment = new Payment(
+                      address: _paymentAddress, cardDetails: _cardDetails);
+                  setState(() {
+                    loading = false;
+                  });
+                  final snackBar =
+                      SnackBar(content: Text('Payment Proccessed'));
+                  Scaffold.of(context).showSnackBar(snackBar);
+                  print('Saved');
+                });
+              }
+            },
           ),
         ),
       ],

@@ -37,24 +37,17 @@ class AuthenticationService {
   }
 
   Future signUpWithEmail({
-    @required String email,
+    @required User user,
     @required String password,
-    @required String fullName,
-    @required String role,
   }) async {
     try {
       var authResult = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email,
+        email: user.email,
         password: password,
       );
 
       // create a new user profile on firestore
-      _currentUser = User(
-        id: authResult.user.uid,
-        email: email,
-        fullName: fullName,
-        userRole: role,
-      );
+      _currentUser = user;
 
       await _firestoreService.createUser(_currentUser);
 
@@ -73,8 +66,12 @@ class AuthenticationService {
   Future _populateCurrentUser(FirebaseUser user) async {
     if (user != null) {
       print(user.toString());
-      //TODO sign out if user is not in db
-      _currentUser = await _firestoreService.getUser(user.uid);
+
+      try {
+        _currentUser = await _firestoreService.getUser(user.uid);
+      } catch (e) {
+        await signOut();
+      }
     }
   }
 }

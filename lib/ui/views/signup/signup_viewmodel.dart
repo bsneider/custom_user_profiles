@@ -22,36 +22,4 @@ class SignUpViewModel extends BaseViewModel {
   void navigateToLogin() async {
     await _navigationService.navigateTo(Routes.loginViewRoute);
   }
-
-  Future signUp({
-    @required String email,
-    @required String password,
-    @required String fullName,
-  }) async {
-    setBusy(true);
-
-    var result = await _authenticationService.signUpWithEmail(
-        email: email,
-        password: password,
-        fullName: fullName,
-        role: _selectedRole);
-
-    setBusy(false);
-
-    if (result is bool) {
-      if (result) {
-        await _navigationService.navigateTo(Routes.homeViewRoute);
-      } else {
-        await _dialogService.showDialog(
-          title: 'Sign Up Failure',
-          description: 'General sign up failure. Please try again later',
-        );
-      }
-    } else {
-      await _dialogService.showDialog(
-        title: 'Sign Up Failure',
-        description: result,
-      );
-    }
-  }
 }
