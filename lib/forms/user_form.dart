@@ -52,6 +52,7 @@ class _UserFormState extends State<UserForm> {
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
+        verticalSpaceMedium,
         Container(
           padding: EdgeInsets.all(10.0),
           child: Form(
