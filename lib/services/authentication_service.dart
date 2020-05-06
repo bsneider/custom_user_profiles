@@ -48,7 +48,7 @@ class AuthenticationService {
 
       // create a new user profile on firestore
       _currentUser = user;
-
+      _currentUser.id = authResult.user.uid;
       await _firestoreService.createUser(_currentUser);
 
       return authResult.user != null;

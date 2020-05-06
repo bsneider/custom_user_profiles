@@ -1,6 +1,6 @@
 class User {
-  final String id;
-  final String fullName;
+  String id;
+  String fullName;
   String email;
   String rank;
   bool male;
