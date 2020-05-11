@@ -1,14 +1,10 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:compound/models/user.dart';
 import 'package:email_validator/email_validator.dart';
-import 'package:compound/ui/shared/shared_styles.dart';
 import 'package:compound/ui/shared/ui_helpers.dart';
 import 'package:compound/services/authentication_service.dart';
-import 'package:compound/services/firestore_service.dart';
-import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:compound/app/router.gr.dart';
 import 'package:compound/app/locator.dart';
@@ -28,9 +24,6 @@ class _UserFormState extends State<UserForm> {
   final _fullNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _rankController = TextEditingController();
-  final _genderController = TextEditingController();
-  final _serviceBranchController = TextEditingController();
 
   static final _enlistedRanks =
       List.generate(9, (int index) => 'E-' + (index + 1).toString());
@@ -43,7 +36,6 @@ class _UserFormState extends State<UserForm> {
     ..addAll(_warrantRanks)
     ..addAll(_officerRanks);
 
-  String _rank;
   User _user = User();
   User get user => _user;
   bool loading = false;
@@ -200,9 +192,12 @@ class _UserFormState extends State<UserForm> {
                   loading = true;
                 });
                 _formKey.currentState.save();
-                var signUpResponse = await _authenticationService.signUpWithEmail(
-                    user: _user, password: _passwordController.text);
-                var snackBarText = signUpResponse.toString == 'true' ? 'Signed Up' : signUpResponse;
+                var signUpResponse =
+                    await _authenticationService.signUpWithEmail(
+                        user: _user, password: _passwordController.text);
+                var snackBarText = signUpResponse.toString == 'true'
+                    ? 'Signed Up'
+                    : signUpResponse;
                 Timer(Duration(seconds: 2), () async {
                   setState(() {
                     loading = false;

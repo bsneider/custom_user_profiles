@@ -1,13 +1,6 @@
-import 'package:compound/ui/shared/ui_helpers.dart';
-import 'package:compound/ui/widgets/busy_button.dart';
-import 'package:compound/ui/widgets/expansion_list.dart';
-import 'package:compound/ui/widgets/input_field.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:compound/ui/views/signup/signup_viewmodel.dart';
-import 'package:email_validator/email_validator.dart';
-import 'package:compound/ui/shared/shared_styles.dart';
-import 'package:compound/forms/payment_form.dart';
 import 'package:compound/forms/user_form.dart';
 import 'package:compound/ui/shared/app_colors.dart';
 

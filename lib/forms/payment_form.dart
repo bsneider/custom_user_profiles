@@ -66,6 +66,7 @@ class _PaymentFormState extends State<PaymentForm> {
                         validator: (value) {
                           if (value.length != 16)
                             return "Please enter a valid number";
+                          return null;
                         },
                       ),
                     ),
@@ -225,7 +226,7 @@ class _PaymentFormState extends State<PaymentForm> {
                 });
                 _formKey.currentState.save();
                 Timer(Duration(seconds: 4), () {
-                  Payment payment = new Payment(
+                  Payment _ = Payment(
                       address: _paymentAddress, cardDetails: _cardDetails);
                   setState(() {
                     loading = false;
