@@ -11,17 +11,28 @@ import 'package:compound/ui/views/startup/startup_view.dart';
 import 'package:compound/ui/views/home/home_view.dart';
 import 'package:compound/ui/views/login/login_view.dart';
 import 'package:compound/ui/views/signup/signup_view.dart';
+import 'package:compound/ui/views/chat/chat_view.dart';
 
 abstract class Routes {
   static const startupViewRoute = '/';
   static const homeViewRoute = '/home-view-route';
   static const loginViewRoute = '/login-view-route';
   static const signUpViewRoute = '/sign-up-view-route';
+  static const chatView = '/chat-view';
+  static const all = {
+    startupViewRoute,
+    homeViewRoute,
+    loginViewRoute,
+    signUpViewRoute,
+    chatView,
+  };
 }
 
 class Router extends RouterBase {
-  //This will probably be removed in future versions
-  //you should call ExtendedNavigator.ofRouter<Router>() directly
+  @override
+  Set<String> get allRoutes => Routes.all;
+
+  @Deprecated('call ExtendedNavigator.ofRouter<Router>() directly')
   static ExtendedNavigatorState get navigator =>
       ExtendedNavigator.ofRouter<Router>();
 
@@ -58,15 +69,24 @@ class Router extends RouterBase {
           builder: (context) => SignUpView(),
           settings: settings,
         );
+      case Routes.chatView:
+        if (hasInvalidArgs<ChatViewArguments>(args)) {
+          return misTypedArgsRoute<ChatViewArguments>(args);
+        }
+        final typedArgs = args as ChatViewArguments ?? ChatViewArguments();
+        return MaterialPageRoute<dynamic>(
+          builder: (context) => ChatView(key: typedArgs.key),
+          settings: settings,
+        );
       default:
         return unknownRoutePage(settings.name);
     }
   }
 }
 
-//**************************************************************************
+// *************************************************************************
 // Arguments holder classes
-//***************************************************************************
+// **************************************************************************
 
 //StartUpView arguments holder class
 class StartUpViewArguments {
@@ -78,4 +98,10 @@ class StartUpViewArguments {
 class HomeViewArguments {
   final Key key;
   HomeViewArguments({this.key});
+}
+
+//ChatView arguments holder class
+class ChatViewArguments {
+  final Key key;
+  ChatViewArguments({this.key});
 }
