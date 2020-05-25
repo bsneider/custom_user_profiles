@@ -1,18 +1,18 @@
-import 'package:compound/app/locator.dart';
-import 'package:compound/services/authentication_service.dart';
-import 'package:compound/services/firestore_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:compound/app/router.gr.dart';
-import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:compound/models/message.dart';
-import 'package:compound/models/user.dart';
+
+import '../../../app/locator.dart';
+import '../../../app/router.gr.dart';
+import '../../../models/message.dart';
+import '../../../models/user.dart';
+import '../../../services/authentication_service.dart';
+import '../../../services/firestore_service.dart';
 
 class ChatViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =
       locator<AuthenticationService>();
-  final FirestoreService _firestoreService = locator<FirestoreService>();
   final NavigationService _navigationService = locator<NavigationService>();
 
   TextEditingController messageController = TextEditingController();

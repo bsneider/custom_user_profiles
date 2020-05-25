@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:flutter_typeahead/flutter_typeahead.dart';
-import 'package:compound/models/payment.dart';
+
+import '../models/payment.dart';
 
 class PaymentForm extends StatefulWidget {
   PaymentForm({Key key}) : super(key: key);

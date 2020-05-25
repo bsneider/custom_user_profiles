@@ -1,8 +1,9 @@
-import 'package:compound/app/locator.dart';
-import 'package:compound/services/authentication_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:compound/app/router.gr.dart';
+
+import '../../../app/locator.dart';
+import '../../../app/router.gr.dart';
+import '../../../services/authentication_service.dart';
 
 class HomeViewModel extends BaseViewModel {
   final AuthenticationService _authenticationService =

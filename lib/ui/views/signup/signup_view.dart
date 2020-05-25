@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:compound/ui/views/signup/signup_viewmodel.dart';
-import 'package:compound/forms/user_form.dart';
-import 'package:compound/ui/shared/app_colors.dart';
+
+import '../../../forms/user_form.dart';
+import '../../shared/app_colors.dart';
+import 'signup_viewmodel.dart';
 
 class SignUpView extends StatelessWidget {
   @override

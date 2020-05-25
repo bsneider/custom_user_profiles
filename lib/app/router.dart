@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route_annotations.dart';
-import 'package:compound/ui/views/home/home_view.dart';
-import 'package:compound/ui/views/startup/startup_view.dart';
-import 'package:compound/ui/views/login/login_view.dart';
-import 'package:compound/ui/views/signup/signup_view.dart';
-import 'package:compound/ui/views/chat/chat_view.dart';
+
+import '../ui/views/chat/chat_view.dart';
+import '../ui/views/home/home_view.dart';
+import '../ui/views/login/login_view.dart';
+import '../ui/views/signup/signup_view.dart';
+import '../ui/views/startup/startup_view.dart';
 
 @MaterialAutoRouter()
 class $Router {

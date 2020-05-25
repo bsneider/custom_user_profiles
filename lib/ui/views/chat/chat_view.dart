@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:compound/ui/views/chat/chat_viewmodel.dart';
+
+import 'chat_viewmodel.dart';
 
 class ChatView extends ViewModelBuilderWidget<ChatViewModel> {
   const ChatView({Key key}) : super(key: key);

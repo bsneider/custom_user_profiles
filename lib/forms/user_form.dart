@@ -1,13 +1,15 @@
 import 'dart:async';
+
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:compound/models/user.dart';
-import 'package:email_validator/email_validator.dart';
-import 'package:compound/ui/shared/ui_helpers.dart';
-import 'package:compound/services/authentication_service.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:compound/app/router.gr.dart';
-import 'package:compound/app/locator.dart';
+
+import '../app/locator.dart';
+import '../app/router.gr.dart';
+import '../models/user.dart';
+import '../services/authentication_service.dart';
+import '../ui/shared/ui_helpers.dart';
 
 class UserForm extends StatefulWidget {
   UserForm({Key key}) : super(key: key);

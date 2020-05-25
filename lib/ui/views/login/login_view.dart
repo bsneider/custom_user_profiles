@@ -1,10 +1,11 @@
-import 'package:compound/ui/shared/ui_helpers.dart';
-import 'package:compound/ui/widgets/busy_button.dart';
-import 'package:compound/ui/widgets/input_field.dart';
-import 'package:compound/ui/widgets/text_link.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
-import 'package:compound/ui/views/login/login_viewmodel.dart';
+
+import '../../shared/ui_helpers.dart';
+import '../../widgets/busy_button.dart';
+import '../../widgets/input_field.dart';
+import '../../widgets/text_link.dart';
+import 'login_viewmodel.dart';
 
 class LoginView extends StatelessWidget {
   final emailController = TextEditingController();

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'app/router.gr.dart';
+
 import 'app/locator.dart';
+import 'app/router.gr.dart';
 
 void main() {
   // Register all the models and services before the app starts

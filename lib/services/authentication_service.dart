@@ -1,8 +1,9 @@
-import 'package:compound/app/locator.dart';
-import 'package:compound/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
-import 'package:compound/services/firestore_service.dart';
+
+import '../app/locator.dart';
+import '../models/user.dart';
+import 'firestore_service.dart';
 
 class AuthenticationService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;

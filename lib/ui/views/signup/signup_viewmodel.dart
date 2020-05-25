@@ -1,7 +1,8 @@
-import 'package:compound/app/locator.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
-import 'package:compound/app/router.gr.dart';
+
+import '../../../app/locator.dart';
+import '../../../app/router.gr.dart';
 
 class SignUpViewModel extends BaseViewModel {
   final NavigationService _navigationService = locator<NavigationService>();

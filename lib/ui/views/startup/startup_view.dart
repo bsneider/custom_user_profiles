@@ -1,6 +1,7 @@
-import 'package:compound/ui/views/startup/startup_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
+
+import 'startup_viewmodel.dart';
 
 class StartUpView extends ViewModelBuilderWidget<StartUpViewModel> {
   const StartUpView({Key key}) : super(key: key);
