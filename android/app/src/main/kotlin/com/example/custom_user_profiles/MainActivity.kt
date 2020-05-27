@@ -1,4 +1,4 @@
-package com.example.custom_user_profiles
+package com.ggb.flutter_apartments
 
 import io.flutter.embedding.android.FlutterActivity
 
